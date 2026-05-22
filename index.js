@@ -1,6 +1,9 @@
 const root = document.querySelector("#root");
 const topPagination = document.querySelector("#top-pagination");
 const pagination = document.querySelector("#pagination");
+const modal = document.querySelector("#modal");
+const closeButton = document.querySelector("#closeButton");
+const openButton = document.querySelector("#openButton");
 
 const LIMIT = 20;
 const TOTAL_POSTS = 100;
@@ -15,6 +18,8 @@ async function loadPosts() {
 
   isLoading = true;
   root.textContent = "Загрузка...";
+
+  openButton.style.display = "none";
 
   // Очищаем пагинацию во время загрузки
   topPagination.innerHTML = "";
@@ -39,6 +44,30 @@ async function loadPosts() {
   }
 }
 loadPosts();
+
+// Открываем модальное окно при загрузке страницы
+modal.showModal();
+document.body.style.overflow = "hidden";
+
+// Открытие модального окна по кнопке
+openButton.addEventListener("click", () => {
+  modal.showModal();
+  document.body.style.overflow = "hidden";
+});
+
+// Закрытие по кнопке
+closeButton.addEventListener("click", () => {
+  modal.close();
+  document.body.style.overflow = "auto";
+});
+
+// Закрытие по клику вне модального окна
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.close();
+    document.body.style.overflow = "auto";
+  }
+});
 
 function renderPosts(posts) {
   root.innerHTML = "";

@@ -7,13 +7,26 @@
     <title>Pagination</title>
   </head>
   <body>
-    
     <div id="top-pagination" class="pagination"></div>
+
+    <button id="openButton">Открыть модальное окно</button>
 
     <div id="root" class="root"></div>
 
-    
     <div id="pagination" class="pagination"></div>
+
+    <dialog id="modal" role="dialog">
+      <div class="dialog">
+        <h2>Модальное окно</h2>
+        <p>Это модальное окно открывается при загрузке страницы</p>
+        <form id="userForm">
+  <input
+    type="text"
+    id="username"
+    placeholder="Введите username"
+  />
+  <button type="button" id="closeButton" class="modal-close-btn">закрыть</button>
+    </dialog>
 
     <script src="index.js"></script>
   </body>

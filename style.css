@@ -49,3 +49,47 @@ body {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+dialog {
+  padding: 0;
+  border: none;
+  border-radius: 14px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog {
+  width: 360px;
+  padding: 24px;
+  background: white;
+  border-radius: 14px;
+}
+
+.modal-close-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: teal;
+  color: white;
+  cursor: pointer;
+}
+
+#openButton {
+  margin-top: 15px;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: white;
+  color: #111;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.2s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid teal;
+}
+
+#openButton:hover {
+  background: #e7f3f3;
+}
