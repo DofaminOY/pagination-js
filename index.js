@@ -34,11 +34,13 @@ async function loadPosts() {
     }
     const data = await response.json();
     isLoading = false;
+    openButton.style.display = "block";
     renderPosts(data);
     renderPagination(topPagination);
     renderPagination(pagination);
   } catch (e) {
     isLoading = false;
+    openButton.style.display = "block";
     root.textContent = e.message;
     root.style.color = "red";
   }
