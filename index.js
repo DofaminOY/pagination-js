@@ -16,6 +16,10 @@ async function loadPosts() {
   isLoading = true;
   root.textContent = "Загрузка...";
 
+  // Очищаем пагинацию во время загрузки
+  topPagination.innerHTML = "";
+  pagination.innerHTML = "";
+
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${LIMIT}`,
@@ -26,8 +30,6 @@ async function loadPosts() {
     const data = await response.json();
     isLoading = false;
     renderPosts(data);
-
-    // ИЗМЕНЕНО: рендерим пагинацию сверху и снизу
     renderPagination(topPagination);
     renderPagination(pagination);
   } catch (e) {
